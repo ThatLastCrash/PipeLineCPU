@@ -1,0 +1,1128 @@
+Analysis & Synthesis report for PipeLineCPU
+Thu Feb 23 10:09:44 2023
+Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Registers Packed Into Inferred Megafunctions
+ 13. Source assignments for altsyncram:REG_Files_rtl_0|altsyncram_6bi1:auto_generated
+ 14. Source assignments for altsyncram:REG_Files_rtl_1|altsyncram_6bi1:auto_generated
+ 15. Parameter Settings for User Entity Instance: MEM:mem
+ 16. Parameter Settings for Inferred Entity Instance: altsyncram:REG_Files_rtl_0
+ 17. Parameter Settings for Inferred Entity Instance: altsyncram:REG_Files_rtl_1
+ 18. altsyncram Parameter Settings by Entity Instance
+ 19. Port Connectivity Checks: "RegID:regid"
+ 20. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                      ;
++------------------------------------+----------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Feb 23 10:09:44 2023        ;
+; Quartus II Version                 ; 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition ;
+; Revision Name                      ; PipeLineCPU                                  ;
+; Top-level Entity Name              ; PipeLineCPU                                  ;
+; Family                             ; Cyclone II                                   ;
+; Total logic elements               ; 225                                          ;
+;     Total combinational functions  ; 83                                           ;
+;     Dedicated logic registers      ; 206                                          ;
+; Total registers                    ; 206                                          ;
+; Total pins                         ; 592                                          ;
+; Total virtual pins                 ; 0                                            ;
+; Total memory bits                  ; 128                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                            ;
+; Total PLLs                         ; 0                                            ;
++------------------------------------+----------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C70F896C6       ;                    ;
+; Top-level entity name                                                      ; PipeLineCPU        ; PipeLineCPU        ;
+; Family name                                                                ; Cyclone II         ; Stratix II         ;
+; Use Generated Physical Constraints File                                    ; Off                ;                    ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report                         ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 6      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                        ;
++--------------------------------------------------+-----------------+-------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+; File Name with User-Entered Path                 ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                     ;
++--------------------------------------------------+-----------------+-------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+; ALU.v                                            ; yes             ; User Verilog HDL File                                 ; D:/NNU/大三上/计算机组成与结构/课设/PipeLineCPU/ALU.v                                            ;
+; MEM.v                                            ; yes             ; User Verilog HDL File                                 ; D:/NNU/大三上/计算机组成与结构/课设/PipeLineCPU/MEM.v                                            ;
+; Controller.v                                     ; yes             ; User Verilog HDL File                                 ; D:/NNU/大三上/计算机组成与结构/课设/PipeLineCPU/Controller.v                                     ;
+; Instruction.v                                    ; yes             ; User Verilog HDL File                                 ; D:/NNU/大三上/计算机组成与结构/课设/PipeLineCPU/Instruction.v                                    ;
+; mux2to1.v                                        ; yes             ; User Verilog HDL File                                 ; D:/NNU/大三上/计算机组成与结构/课设/PipeLineCPU/mux2to1.v                                        ;
+; mux2to1_regdst.v                                 ; yes             ; User Verilog HDL File                                 ; D:/NNU/大三上/计算机组成与结构/课设/PipeLineCPU/mux2to1_regdst.v                                 ;
+; signZeroExtend.v                                 ; yes             ; User Verilog HDL File                                 ; D:/NNU/大三上/计算机组成与结构/课设/PipeLineCPU/signZeroExtend.v                                 ;
+; PipeLineCPU.v                                    ; yes             ; User Verilog HDL File                                 ; D:/NNU/大三上/计算机组成与结构/课设/PipeLineCPU/PipeLineCPU.v                                    ;
+; RegMEM.v                                         ; yes             ; User Verilog HDL File                                 ; D:/NNU/大三上/计算机组成与结构/课设/PipeLineCPU/RegMEM.v                                         ;
+; RegEXE.v                                         ; yes             ; User Verilog HDL File                                 ; D:/NNU/大三上/计算机组成与结构/课设/PipeLineCPU/RegEXE.v                                         ;
+; RegIF.v                                          ; yes             ; User Verilog HDL File                                 ; D:/NNU/大三上/计算机组成与结构/课设/PipeLineCPU/RegIF.v                                          ;
+; RegID.v                                          ; yes             ; User Verilog HDL File                                 ; D:/NNU/大三上/计算机组成与结构/课设/PipeLineCPU/RegID.v                                          ;
+; DataHazard.v                                     ; yes             ; User Verilog HDL File                                 ; D:/NNU/大三上/计算机组成与结构/课设/PipeLineCPU/DataHazard.v                                     ;
+; mux4to1.v                                        ; yes             ; User Verilog HDL File                                 ; D:/NNU/大三上/计算机组成与结构/课设/PipeLineCPU/mux4to1.v                                        ;
+; LoadUse.v                                        ; yes             ; User Verilog HDL File                                 ; D:/NNU/大三上/计算机组成与结构/课设/PipeLineCPU/LoadUse.v                                        ;
+; altsyncram.tdf                                   ; yes             ; Megafunction                                          ; e:/quartus/quartus/libraries/megafunctions/altsyncram.tdf                                        ;
+; db/altsyncram_6bi1.tdf                           ; yes             ; Auto-Generated Megafunction                           ; D:/NNU/大三上/计算机组成与结构/课设/PipeLineCPU/db/altsyncram_6bi1.tdf                           ;
+; db/pipelinecpu.ram0_pipelinecpu_2d5bba03.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; D:/NNU/大三上/计算机组成与结构/课设/PipeLineCPU/db/pipelinecpu.ram0_pipelinecpu_2d5bba03.hdl.mif ;
++--------------------------------------------------+-----------------+-------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 225   ;
+;                                             ;       ;
+; Total combinational functions               ; 83    ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 10    ;
+;     -- 3 input functions                    ; 16    ;
+;     -- <=2 input functions                  ; 57    ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 23    ;
+;     -- arithmetic mode                      ; 60    ;
+;                                             ;       ;
+; Total registers                             ; 206   ;
+;     -- Dedicated logic registers            ; 206   ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 592   ;
+; Total memory bits                           ; 128   ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 270   ;
+; Total fan-out                               ; 1160  ;
+; Average fan-out                             ; 1.23  ;
++---------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                        ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node             ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                    ; Library Name ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------+--------------+
+; |PipeLineCPU                           ; 83 (1)            ; 206 (0)      ; 128         ; 0            ; 0       ; 0         ; 592  ; 0            ; |PipeLineCPU                                                           ; work         ;
+;    |ALU:alu|                           ; 44 (44)           ; 34 (34)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PipeLineCPU|ALU:alu                                                   ; work         ;
+;    |Instruction:ins|                   ; 30 (30)           ; 60 (60)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PipeLineCPU|Instruction:ins                                           ;              ;
+;    |MEM:mem|                           ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PipeLineCPU|MEM:mem                                                   ; work         ;
+;    |RegEXE:regexe|                     ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PipeLineCPU|RegEXE:regexe                                             ; work         ;
+;    |RegID:regid|                       ; 0 (0)             ; 48 (48)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PipeLineCPU|RegID:regid                                               ; work         ;
+;    |RegMEM:regmem|                     ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PipeLineCPU|RegMEM:regmem                                             ; work         ;
+;    |altsyncram:REG_Files_rtl_0|        ; 0 (0)             ; 0 (0)        ; 64          ; 0            ; 0       ; 0         ; 0    ; 0            ; |PipeLineCPU|altsyncram:REG_Files_rtl_0                                ;              ;
+;       |altsyncram_6bi1:auto_generated| ; 0 (0)             ; 0 (0)        ; 64          ; 0            ; 0       ; 0         ; 0    ; 0            ; |PipeLineCPU|altsyncram:REG_Files_rtl_0|altsyncram_6bi1:auto_generated ;              ;
+;    |altsyncram:REG_Files_rtl_1|        ; 0 (0)             ; 0 (0)        ; 64          ; 0            ; 0       ; 0         ; 0    ; 0            ; |PipeLineCPU|altsyncram:REG_Files_rtl_1                                ;              ;
+;       |altsyncram_6bi1:auto_generated| ; 0 (0)             ; 0 (0)        ; 64          ; 0            ; 0       ; 0         ; 0    ; 0            ; |PipeLineCPU|altsyncram:REG_Files_rtl_1|altsyncram_6bi1:auto_generated ;              ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                     ;
++----------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+--------------------------------------------------+
+; Name                                                                 ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                              ;
++----------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+--------------------------------------------------+
+; altsyncram:REG_Files_rtl_0|altsyncram_6bi1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; db/PipeLineCPU.ram0_PipeLineCPU_2d5bba03.hdl.mif ;
+; altsyncram:REG_Files_rtl_1|altsyncram_6bi1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; db/PipeLineCPU.ram0_PipeLineCPU_2d5bba03.hdl.mif ;
++----------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+--------------------------------------------------+
+
+
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++-----------------------------------------+----------------------------------------+
+; Register name                           ; Reason for Removal                     ;
++-----------------------------------------+----------------------------------------+
+; RegEXE:regexe|MEM_busB[16..31]          ; Stuck at GND due to stuck port data_in ;
+; RegIF:regif|ID_instru[0..31]            ; Stuck at GND due to stuck port data_in ;
+; Instruction:ins|temp4[0..1]             ; Stuck at GND due to stuck port data_in ;
+; RegID:regid|EXE_Rd[2..4]                ; Stuck at GND due to stuck port data_in ;
+; RegID:regid|EXE_Rt[0..4]                ; Stuck at GND due to stuck port data_in ;
+; RegID:regid|EXE_Rs[0..4]                ; Stuck at GND due to stuck port data_in ;
+; RegID:regid|EXE_imm16[0..15]            ; Stuck at GND due to stuck port data_in ;
+; RegIF:regif|ID_pc[0..29]                ; Lost fanout                            ;
+; RegEXE:regexe|MEM_Rd[2..4]              ; Stuck at GND due to stuck port data_in ;
+; RegID:regid|EXE_Rd[0..1]                ; Stuck at GND due to stuck port data_in ;
+; RegID:regid|EXE_MemRead                 ; Stuck at GND due to stuck port data_in ;
+; RegID:regid|EXE_AluCtr[1..2]            ; Stuck at GND due to stuck port data_in ;
+; RegID:regid|EXE_Rw[0..4]                ; Stuck at GND due to stuck port data_in ;
+; RegID:regid|EXE_AluSrc                  ; Stuck at GND due to stuck port data_in ;
+; RegID:regid|EXE_MemtoReg                ; Stuck at GND due to stuck port data_in ;
+; RegID:regid|EXE_MemWr                   ; Stuck at GND due to stuck port data_in ;
+; RegEXE:regexe|MEM_Rd[0..1]              ; Stuck at GND due to stuck port data_in ;
+; RegEXE:regexe|MEM_MemtoReg              ; Stuck at GND due to stuck port data_in ;
+; RegEXE:regexe|MEM_MemWr                 ; Stuck at GND due to stuck port data_in ;
+; RegEXE:regexe|MEM_Rw[0..4]              ; Stuck at GND due to stuck port data_in ;
+; RegMEM:regmem|Wr_Rw[0..4]               ; Stuck at GND due to stuck port data_in ;
+; RegID:regid|EXE_RegWr                   ; Merged with RegID:regid|EXE_AluCtr[0]  ;
+; RegID:regid|EXE_AluCtr[0]               ; Stuck at VCC due to stuck port data_in ;
+; RegID:regid|EXE_ExtOP                   ; Stuck at VCC due to stuck port data_in ;
+; RegEXE:regexe|MEM_RegWr                 ; Stuck at VCC due to stuck port data_in ;
+; RegMEM:regmem|Wr_RegWr                  ; Stuck at VCC due to stuck port data_in ;
+; RegEXE:regexe|MEM_busB[0..15]           ; Lost fanout                            ;
+; Total Number of Removed Registers = 160 ;                                        ;
++-----------------------------------------+----------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                               ;
++----------------------------+---------------------------+----------------------------------------------------------------------------------+
+; Register name              ; Reason for Removal        ; Registers Removed due to This Register                                           ;
++----------------------------+---------------------------+----------------------------------------------------------------------------------+
+; RegEXE:regexe|MEM_busB[16] ; Stuck at GND              ; RegEXE:regexe|MEM_busB[0], RegEXE:regexe|MEM_busB[1], RegEXE:regexe|MEM_busB[2], ;
+;                            ; due to stuck port data_in ; RegEXE:regexe|MEM_busB[3], RegEXE:regexe|MEM_busB[4], RegEXE:regexe|MEM_busB[5], ;
+;                            ;                           ; RegEXE:regexe|MEM_busB[6], RegEXE:regexe|MEM_busB[7], RegEXE:regexe|MEM_busB[8]  ;
+; RegIF:regif|ID_instru[15]  ; Stuck at GND              ; RegID:regid|EXE_Rd[4], RegID:regid|EXE_Rt[4], RegID:regid|EXE_Rs[4],             ;
+;                            ; due to stuck port data_in ; RegID:regid|EXE_imm16[15], RegEXE:regexe|MEM_Rd[4], RegID:regid|EXE_AluCtr[2],   ;
+;                            ;                           ; RegID:regid|EXE_Rw[4], RegEXE:regexe|MEM_Rw[4]                                   ;
+; RegIF:regif|ID_instru[3]   ; Stuck at GND              ; RegIF:regif|ID_pc[29], RegIF:regif|ID_pc[28], RegIF:regif|ID_pc[26]              ;
+;                            ; due to stuck port data_in ;                                                                                  ;
+; RegIF:regif|ID_instru[1]   ; Stuck at GND              ; RegID:regid|EXE_imm16[1], RegIF:regif|ID_pc[27]                                  ;
+;                            ; due to stuck port data_in ;                                                                                  ;
+; RegID:regid|EXE_Rw[0]      ; Stuck at GND              ; RegEXE:regexe|MEM_Rw[0], RegMEM:regmem|Wr_Rw[0]                                  ;
+;                            ; due to stuck port data_in ;                                                                                  ;
+; RegID:regid|EXE_Rw[1]      ; Stuck at GND              ; RegEXE:regexe|MEM_Rw[1], RegMEM:regmem|Wr_Rw[1]                                  ;
+;                            ; due to stuck port data_in ;                                                                                  ;
+; RegID:regid|EXE_Rw[2]      ; Stuck at GND              ; RegEXE:regexe|MEM_Rw[2], RegMEM:regmem|Wr_Rw[2]                                  ;
+;                            ; due to stuck port data_in ;                                                                                  ;
+; RegID:regid|EXE_AluCtr[0]  ; Stuck at VCC              ; RegEXE:regexe|MEM_RegWr, RegMEM:regmem|Wr_RegWr                                  ;
+;                            ; due to stuck port data_in ;                                                                                  ;
+; RegID:regid|EXE_Rd[2]      ; Stuck at GND              ; RegEXE:regexe|MEM_Rd[2]                                                          ;
+;                            ; due to stuck port data_in ;                                                                                  ;
+; RegID:regid|EXE_Rd[3]      ; Stuck at GND              ; RegEXE:regexe|MEM_Rd[3]                                                          ;
+;                            ; due to stuck port data_in ;                                                                                  ;
+; RegID:regid|EXE_Rd[1]      ; Stuck at GND              ; RegEXE:regexe|MEM_Rd[1]                                                          ;
+;                            ; due to stuck port data_in ;                                                                                  ;
+; RegID:regid|EXE_Rd[0]      ; Stuck at GND              ; RegEXE:regexe|MEM_Rd[0]                                                          ;
+;                            ; due to stuck port data_in ;                                                                                  ;
+; RegID:regid|EXE_Rw[3]      ; Stuck at GND              ; RegEXE:regexe|MEM_Rw[3]                                                          ;
+;                            ; due to stuck port data_in ;                                                                                  ;
+; RegID:regid|EXE_MemtoReg   ; Stuck at GND              ; RegEXE:regexe|MEM_MemtoReg                                                       ;
+;                            ; due to stuck port data_in ;                                                                                  ;
+; RegID:regid|EXE_MemWr      ; Stuck at GND              ; RegEXE:regexe|MEM_MemWr                                                          ;
+;                            ; due to stuck port data_in ;                                                                                  ;
++----------------------------+---------------------------+----------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 206   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------+
+; Registers Packed Into Inferred Megafunctions ;
++------------------+--------------+------------+
+; Register Name    ; Megafunction ; Type       ;
++------------------+--------------+------------+
+; ID_busA[0]~reg0  ; REG_Files~0  ; RAM        ;
+; ID_busA[1]~reg0  ; REG_Files~0  ; RAM        ;
+; ID_busA[2]~reg0  ; REG_Files~0  ; RAM        ;
+; ID_busA[3]~reg0  ; REG_Files~0  ; RAM        ;
+; ID_busA[4]~reg0  ; REG_Files~0  ; RAM        ;
+; ID_busA[5]~reg0  ; REG_Files~0  ; RAM        ;
+; ID_busA[6]~reg0  ; REG_Files~0  ; RAM        ;
+; ID_busA[7]~reg0  ; REG_Files~0  ; RAM        ;
+; ID_busA[8]~reg0  ; REG_Files~0  ; RAM        ;
+; ID_busA[9]~reg0  ; REG_Files~0  ; RAM        ;
+; ID_busA[10]~reg0 ; REG_Files~0  ; RAM        ;
+; ID_busA[11]~reg0 ; REG_Files~0  ; RAM        ;
+; ID_busA[12]~reg0 ; REG_Files~0  ; RAM        ;
+; ID_busA[13]~reg0 ; REG_Files~0  ; RAM        ;
+; ID_busA[14]~reg0 ; REG_Files~0  ; RAM        ;
+; ID_busA[15]~reg0 ; REG_Files~0  ; RAM        ;
+; ID_busA[16]~reg0 ; REG_Files~0  ; RAM        ;
+; ID_busA[17]~reg0 ; REG_Files~0  ; RAM        ;
+; ID_busA[18]~reg0 ; REG_Files~0  ; RAM        ;
+; ID_busA[19]~reg0 ; REG_Files~0  ; RAM        ;
+; ID_busA[20]~reg0 ; REG_Files~0  ; RAM        ;
+; ID_busA[21]~reg0 ; REG_Files~0  ; RAM        ;
+; ID_busA[22]~reg0 ; REG_Files~0  ; RAM        ;
+; ID_busA[23]~reg0 ; REG_Files~0  ; RAM        ;
+; ID_busA[24]~reg0 ; REG_Files~0  ; RAM        ;
+; ID_busA[25]~reg0 ; REG_Files~0  ; RAM        ;
+; ID_busA[26]~reg0 ; REG_Files~0  ; RAM        ;
+; ID_busA[27]~reg0 ; REG_Files~0  ; RAM        ;
+; ID_busA[28]~reg0 ; REG_Files~0  ; RAM        ;
+; ID_busA[29]~reg0 ; REG_Files~0  ; RAM        ;
+; ID_busA[30]~reg0 ; REG_Files~0  ; RAM        ;
+; ID_busA[31]~reg0 ; REG_Files~0  ; RAM        ;
+; ID_busB[0]~reg0  ; REG_Files~1  ; RAM        ;
+; ID_busB[1]~reg0  ; REG_Files~1  ; RAM        ;
+; ID_busB[2]~reg0  ; REG_Files~1  ; RAM        ;
+; ID_busB[3]~reg0  ; REG_Files~1  ; RAM        ;
+; ID_busB[4]~reg0  ; REG_Files~1  ; RAM        ;
+; ID_busB[5]~reg0  ; REG_Files~1  ; RAM        ;
+; ID_busB[6]~reg0  ; REG_Files~1  ; RAM        ;
+; ID_busB[7]~reg0  ; REG_Files~1  ; RAM        ;
+; ID_busB[8]~reg0  ; REG_Files~1  ; RAM        ;
+; ID_busB[9]~reg0  ; REG_Files~1  ; RAM        ;
+; ID_busB[10]~reg0 ; REG_Files~1  ; RAM        ;
+; ID_busB[11]~reg0 ; REG_Files~1  ; RAM        ;
+; ID_busB[12]~reg0 ; REG_Files~1  ; RAM        ;
+; ID_busB[13]~reg0 ; REG_Files~1  ; RAM        ;
+; ID_busB[14]~reg0 ; REG_Files~1  ; RAM        ;
+; ID_busB[15]~reg0 ; REG_Files~1  ; RAM        ;
+; ID_busB[16]~reg0 ; REG_Files~1  ; RAM        ;
+; ID_busB[17]~reg0 ; REG_Files~1  ; RAM        ;
+; ID_busB[18]~reg0 ; REG_Files~1  ; RAM        ;
+; ID_busB[19]~reg0 ; REG_Files~1  ; RAM        ;
+; ID_busB[20]~reg0 ; REG_Files~1  ; RAM        ;
+; ID_busB[21]~reg0 ; REG_Files~1  ; RAM        ;
+; ID_busB[22]~reg0 ; REG_Files~1  ; RAM        ;
+; ID_busB[23]~reg0 ; REG_Files~1  ; RAM        ;
+; ID_busB[24]~reg0 ; REG_Files~1  ; RAM        ;
+; ID_busB[25]~reg0 ; REG_Files~1  ; RAM        ;
+; ID_busB[26]~reg0 ; REG_Files~1  ; RAM        ;
+; ID_busB[27]~reg0 ; REG_Files~1  ; RAM        ;
+; ID_busB[28]~reg0 ; REG_Files~1  ; RAM        ;
+; ID_busB[29]~reg0 ; REG_Files~1  ; RAM        ;
+; ID_busB[30]~reg0 ; REG_Files~1  ; RAM        ;
+; ID_busB[31]~reg0 ; REG_Files~1  ; RAM        ;
++------------------+--------------+------------+
+
+
++----------------------------------------------------------------------------------+
+; Source assignments for altsyncram:REG_Files_rtl_0|altsyncram_6bi1:auto_generated ;
++---------------------------------+--------------------+------+--------------------+
+; Assignment                      ; Value              ; From ; To                 ;
++---------------------------------+--------------------+------+--------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                  ;
++---------------------------------+--------------------+------+--------------------+
+
+
++----------------------------------------------------------------------------------+
+; Source assignments for altsyncram:REG_Files_rtl_1|altsyncram_6bi1:auto_generated ;
++---------------------------------+--------------------+------+--------------------+
+; Assignment                      ; Value              ; From ; To                 ;
++---------------------------------+--------------------+------+--------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                  ;
++---------------------------------+--------------------+------+--------------------+
+
+
++------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MEM:mem ;
++----------------+-------+-----------------------------+
+; Parameter Name ; Value ; Type                        ;
++----------------+-------+-----------------------------+
+; NUMB           ; 256   ; Signed Integer              ;
+; SIZE           ; 32    ; Signed Integer              ;
++----------------+-------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: altsyncram:REG_Files_rtl_0                            ;
++------------------------------------+--------------------------------------------------+----------------+
+; Parameter Name                     ; Value                                            ; Type           ;
++------------------------------------+--------------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                                ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                               ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                              ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                               ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                              ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                                ; Untyped        ;
+; OPERATION_MODE                     ; DUAL_PORT                                        ; Untyped        ;
+; WIDTH_A                            ; 32                                               ; Untyped        ;
+; WIDTHAD_A                          ; 5                                                ; Untyped        ;
+; NUMWORDS_A                         ; 32                                               ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                     ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                             ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                             ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                             ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                             ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                             ; Untyped        ;
+; WIDTH_B                            ; 32                                               ; Untyped        ;
+; WIDTHAD_B                          ; 5                                                ; Untyped        ;
+; NUMWORDS_B                         ; 32                                               ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                           ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                           ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                           ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1                                           ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                     ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                           ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                             ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                             ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                             ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                             ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                             ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                             ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                                ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                                ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                             ; Untyped        ;
+; BYTE_SIZE                          ; 8                                                ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                        ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                             ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                             ; Untyped        ;
+; INIT_FILE                          ; db/PipeLineCPU.ram0_PipeLineCPU_2d5bba03.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                           ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                                ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                           ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                           ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                           ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                           ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                  ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                  ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                            ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone II                                       ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_6bi1                                  ; Untyped        ;
++------------------------------------+--------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: altsyncram:REG_Files_rtl_1                            ;
++------------------------------------+--------------------------------------------------+----------------+
+; Parameter Name                     ; Value                                            ; Type           ;
++------------------------------------+--------------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                                ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                               ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                              ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                               ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                              ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                                ; Untyped        ;
+; OPERATION_MODE                     ; DUAL_PORT                                        ; Untyped        ;
+; WIDTH_A                            ; 32                                               ; Untyped        ;
+; WIDTHAD_A                          ; 5                                                ; Untyped        ;
+; NUMWORDS_A                         ; 32                                               ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                     ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                             ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                             ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                             ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                             ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                             ; Untyped        ;
+; WIDTH_B                            ; 32                                               ; Untyped        ;
+; WIDTHAD_B                          ; 5                                                ; Untyped        ;
+; NUMWORDS_B                         ; 32                                               ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                           ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                           ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                           ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1                                           ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                     ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                           ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                             ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                             ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                             ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                             ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                             ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                             ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                                ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                                ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                             ; Untyped        ;
+; BYTE_SIZE                          ; 8                                                ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                        ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                             ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                             ; Untyped        ;
+; INIT_FILE                          ; db/PipeLineCPU.ram0_PipeLineCPU_2d5bba03.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                           ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                                ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                           ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                           ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                           ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                           ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                  ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                  ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                            ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone II                                       ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_6bi1                                  ; Untyped        ;
++------------------------------------+--------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                       ;
++-------------------------------------------+----------------------------+
+; Name                                      ; Value                      ;
++-------------------------------------------+----------------------------+
+; Number of entity instances                ; 2                          ;
+; Entity Instance                           ; altsyncram:REG_Files_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                  ;
+;     -- WIDTH_A                            ; 32                         ;
+;     -- NUMWORDS_A                         ; 32                         ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED               ;
+;     -- WIDTH_B                            ; 32                         ;
+;     -- NUMWORDS_B                         ; 32                         ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                     ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED               ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                       ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                  ;
+; Entity Instance                           ; altsyncram:REG_Files_rtl_1 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                  ;
+;     -- WIDTH_A                            ; 32                         ;
+;     -- NUMWORDS_A                         ; 32                         ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED               ;
+;     -- WIDTH_B                            ; 32                         ;
+;     -- NUMWORDS_B                         ; 32                         ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                     ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED               ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                       ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                  ;
++-------------------------------------------+----------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "RegID:regid"                                                                                                                                                                 ;
++----------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                                                                                  ;
++----------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; EXE_busB ; Output ; Warning  ; Output or bidir port (16 bits) is smaller than the port expression (32 bits) it drives.  The 16 most-significant bit(s) in the port expression will be connected to GND. ;
++----------+--------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+    Info: Processing started: Thu Feb 23 10:09:43 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PipeLineCPU -c PipeLineCPU
+Info: Found 1 design units, including 1 entities, in source file alu.v
+    Info: Found entity 1: ALU
+Info: Found 1 design units, including 1 entities, in source file mem.v
+    Info: Found entity 1: MEM
+Info: Found 1 design units, including 1 entities, in source file controller.v
+    Info: Found entity 1: Controller
+Info: Found 1 design units, including 1 entities, in source file instruction.v
+    Info: Found entity 1: Instruction
+Info: Found 1 design units, including 1 entities, in source file mux2to1.v
+    Info: Found entity 1: mux2to1
+Info: Found 1 design units, including 1 entities, in source file mux2to1_regdst.v
+    Info: Found entity 1: mux2to1_regdst
+Info: Found 1 design units, including 1 entities, in source file regfile.v
+    Info: Found entity 1: RegFile
+Info: Found 1 design units, including 1 entities, in source file signzeroextend.v
+    Info: Found entity 1: signZeroExtend
+Info: Found 1 design units, including 1 entities, in source file pipelinecpu.v
+    Info: Found entity 1: PipeLineCPU
+Info: Found 1 design units, including 1 entities, in source file regmem.v
+    Info: Found entity 1: RegMEM
+Info: Found 1 design units, including 1 entities, in source file regexe.v
+    Info: Found entity 1: RegEXE
+Info: Found 1 design units, including 1 entities, in source file regif.v
+    Info: Found entity 1: RegIF
+Info: Found 1 design units, including 1 entities, in source file regid.v
+    Info: Found entity 1: RegID
+Info: Found 1 design units, including 1 entities, in source file wrreg.v
+    Info: Found entity 1: WrReg
+Info: Found 1 design units, including 1 entities, in source file datahazard.v
+    Info: Found entity 1: DataHazard
+Info: Found 1 design units, including 1 entities, in source file mux4to1.v
+    Info: Found entity 1: mux4to1
+Info: Found 1 design units, including 1 entities, in source file loaduse.v
+    Info: Found entity 1: LoadUse
+Warning (10236): Verilog HDL Implicit Net warning at Controller.v(27): created implicit net for "ID_Branch"
+Warning (10236): Verilog HDL Implicit Net warning at Controller.v(28): created implicit net for "ID_Jump"
+Info: Elaborating entity "PipeLineCPU" for the top level hierarchy
+Info: Elaborating entity "Instruction" for hierarchy "Instruction:ins"
+Warning (10036): Verilog HDL or VHDL warning at Instruction.v(71): object "temp1" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Instruction.v(72): object "temp2" assigned a value but never read
+Warning (10855): Verilog HDL warning at Instruction.v(34): initial value for variable Mem should be constant
+Warning (10230): Verilog HDL assignment warning at Instruction.v(92): truncated value with size 32 to match size of target (30)
+Warning (10030): Net "Mem" at Instruction.v(10) has no driver or initial value, using a default initial value '0'
+Info: Elaborating entity "RegIF" for hierarchy "RegIF:regif"
+Info: Elaborating entity "Controller" for hierarchy "Controller:con"
+Warning (10036): Verilog HDL or VHDL warning at Controller.v(55): object "temp1" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Controller.v(56): object "temp2" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at Controller.v(64): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at Controller.v(66): truncated value with size 32 to match size of target (30)
+Info: Elaborating entity "mux2to1_regdst" for hierarchy "mux2to1_regdst:mux1"
+Info: Elaborating entity "LoadUse" for hierarchy "LoadUse:loaduse"
+Info: Elaborating entity "RegID" for hierarchy "RegID:regid"
+Warning (10230): Verilog HDL assignment warning at RegID.v(38): truncated value with size 32 to match size of target (16)
+Info: Elaborating entity "signZeroExtend" for hierarchy "signZeroExtend:sz"
+Info: Elaborating entity "DataHazard" for hierarchy "DataHazard:dataHazard"
+Warning (10240): Verilog HDL Always Construct warning at DataHazard.v(28): inferring latch(es) for variable "AluSrcA", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at DataHazard.v(28): inferring latch(es) for variable "AluSrcB", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "AluSrcB[0]" at DataHazard.v(38)
+Info (10041): Inferred latch for "AluSrcB[1]" at DataHazard.v(38)
+Info (10041): Inferred latch for "AluSrcA[0]" at DataHazard.v(36)
+Info (10041): Inferred latch for "AluSrcA[1]" at DataHazard.v(36)
+Info: Elaborating entity "mux4to1" for hierarchy "mux4to1:m4to1_A"
+Info: Elaborating entity "ALU" for hierarchy "ALU:alu"
+Info: Elaborating entity "RegEXE" for hierarchy "RegEXE:regexe"
+Info: Elaborating entity "MEM" for hierarchy "MEM:mem"
+Info: Elaborating entity "mux2to1" for hierarchy "mux2to1:mux3"
+Info: Elaborating entity "RegMEM" for hierarchy "RegMEM:regmem"
+Warning: Net is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[31]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[30]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[29]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[28]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[27]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[26]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[25]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[24]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[23]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[22]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[21]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[20]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[19]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[18]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[17]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[16]" is missing source, defaulting to GND
+Warning: Net is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[31]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[30]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[29]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[28]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[27]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[26]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[25]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[24]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[23]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[22]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[21]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[20]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[19]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[18]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[17]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[16]" is missing source, defaulting to GND
+Warning: Net is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[31]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[30]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[29]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[28]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[27]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[26]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[25]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[24]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[23]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[22]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[21]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[20]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[19]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[18]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[17]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[16]" is missing source, defaulting to GND
+Warning: Net is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[31]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[30]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[29]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[28]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[27]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[26]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[25]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[24]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[23]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[22]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[21]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[20]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[19]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[18]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[17]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[16]" is missing source, defaulting to GND
+Warning: Net is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[31]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[30]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[29]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[28]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[27]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[26]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[25]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[24]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[23]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[22]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[21]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[20]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[19]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[18]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[17]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[16]" is missing source, defaulting to GND
+Warning: Net is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[31]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[30]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[29]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[28]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[27]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[26]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[25]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[24]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[23]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[22]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[21]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[20]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[19]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[18]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[17]" is missing source, defaulting to GND
+    Warning (12110): Net "EXE_busB[16]" is missing source, defaulting to GND
+Warning: LATCH primitive "DataHazard:dataHazard|AluSrcB[1]" is permanently enabled
+Warning: LATCH primitive "DataHazard:dataHazard|AluSrcB[0]" is permanently enabled
+Warning: Inferred dual-clock RAM node "REG_Files~0" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
+Warning: Inferred dual-clock RAM node "REG_Files~1" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
+Critical Warning: Memory depth (512) in the design file differs from memory depth (257) in the Memory Initialization File "PipeLineCPU.ram0_MEM_130ef.hdl.mif" -- setting initial value for remaining addresses to 0
+Warning: Memory Initialization File or Hexadecimal (Intel-Format) File "PipeLineCPU.ram0_MEM_130ef.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Info: Inferred 2 megafunctions from design logic
+    Info: Inferred altsyncram megafunction from the following design logic: "REG_Files~0" 
+        Info: Parameter OPERATION_MODE set to DUAL_PORT
+        Info: Parameter WIDTH_A set to 32
+        Info: Parameter WIDTHAD_A set to 5
+        Info: Parameter NUMWORDS_A set to 32
+        Info: Parameter WIDTH_B set to 32
+        Info: Parameter WIDTHAD_B set to 5
+        Info: Parameter NUMWORDS_B set to 32
+        Info: Parameter ADDRESS_ACLR_A set to NONE
+        Info: Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info: Parameter ADDRESS_ACLR_B set to NONE
+        Info: Parameter OUTDATA_ACLR_B set to NONE
+        Info: Parameter ADDRESS_REG_B set to CLOCK1
+        Info: Parameter INDATA_ACLR_A set to NONE
+        Info: Parameter WRCONTROL_ACLR_A set to NONE
+        Info: Parameter INIT_FILE set to db/PipeLineCPU.ram0_PipeLineCPU_2d5bba03.hdl.mif
+    Info: Inferred altsyncram megafunction from the following design logic: "REG_Files~1" 
+        Info: Parameter OPERATION_MODE set to DUAL_PORT
+        Info: Parameter WIDTH_A set to 32
+        Info: Parameter WIDTHAD_A set to 5
+        Info: Parameter NUMWORDS_A set to 32
+        Info: Parameter WIDTH_B set to 32
+        Info: Parameter WIDTHAD_B set to 5
+        Info: Parameter NUMWORDS_B set to 32
+        Info: Parameter ADDRESS_ACLR_A set to NONE
+        Info: Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info: Parameter ADDRESS_ACLR_B set to NONE
+        Info: Parameter OUTDATA_ACLR_B set to NONE
+        Info: Parameter ADDRESS_REG_B set to CLOCK1
+        Info: Parameter INDATA_ACLR_A set to NONE
+        Info: Parameter WRCONTROL_ACLR_A set to NONE
+        Info: Parameter INIT_FILE set to db/PipeLineCPU.ram0_PipeLineCPU_2d5bba03.hdl.mif
+Info: Elaborated megafunction instantiation "altsyncram:REG_Files_rtl_0"
+Info: Instantiated megafunction "altsyncram:REG_Files_rtl_0" with the following parameter:
+    Info: Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info: Parameter "WIDTH_A" = "32"
+    Info: Parameter "WIDTHAD_A" = "5"
+    Info: Parameter "NUMWORDS_A" = "32"
+    Info: Parameter "WIDTH_B" = "32"
+    Info: Parameter "WIDTHAD_B" = "5"
+    Info: Parameter "NUMWORDS_B" = "32"
+    Info: Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info: Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info: Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info: Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info: Parameter "ADDRESS_REG_B" = "CLOCK1"
+    Info: Parameter "INDATA_ACLR_A" = "NONE"
+    Info: Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info: Parameter "INIT_FILE" = "db/PipeLineCPU.ram0_PipeLineCPU_2d5bba03.hdl.mif"
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_6bi1.tdf
+    Info: Found entity 1: altsyncram_6bi1
+Warning: 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "IF_instru[0]" is stuck at GND
+    Warning (13410): Pin "IF_instru[1]" is stuck at GND
+    Warning (13410): Pin "IF_instru[2]" is stuck at GND
+    Warning (13410): Pin "IF_instru[3]" is stuck at GND
+    Warning (13410): Pin "IF_instru[4]" is stuck at GND
+    Warning (13410): Pin "IF_instru[5]" is stuck at GND
+    Warning (13410): Pin "IF_instru[6]" is stuck at GND
+    Warning (13410): Pin "IF_instru[7]" is stuck at GND
+    Warning (13410): Pin "IF_instru[8]" is stuck at GND
+    Warning (13410): Pin "IF_instru[9]" is stuck at GND
+    Warning (13410): Pin "IF_instru[10]" is stuck at GND
+    Warning (13410): Pin "IF_instru[11]" is stuck at GND
+    Warning (13410): Pin "IF_instru[12]" is stuck at GND
+    Warning (13410): Pin "IF_instru[13]" is stuck at GND
+    Warning (13410): Pin "IF_instru[14]" is stuck at GND
+    Warning (13410): Pin "IF_instru[15]" is stuck at GND
+    Warning (13410): Pin "IF_instru[16]" is stuck at GND
+    Warning (13410): Pin "IF_instru[17]" is stuck at GND
+    Warning (13410): Pin "IF_instru[18]" is stuck at GND
+    Warning (13410): Pin "IF_instru[19]" is stuck at GND
+    Warning (13410): Pin "IF_instru[20]" is stuck at GND
+    Warning (13410): Pin "IF_instru[21]" is stuck at GND
+    Warning (13410): Pin "IF_instru[22]" is stuck at GND
+    Warning (13410): Pin "IF_instru[23]" is stuck at GND
+    Warning (13410): Pin "IF_instru[24]" is stuck at GND
+    Warning (13410): Pin "IF_instru[25]" is stuck at GND
+    Warning (13410): Pin "IF_instru[26]" is stuck at GND
+    Warning (13410): Pin "IF_instru[27]" is stuck at GND
+    Warning (13410): Pin "IF_instru[28]" is stuck at GND
+    Warning (13410): Pin "IF_instru[29]" is stuck at GND
+    Warning (13410): Pin "IF_instru[30]" is stuck at GND
+    Warning (13410): Pin "IF_instru[31]" is stuck at GND
+    Warning (13410): Pin "IF_addr_mem[0]" is stuck at GND
+    Warning (13410): Pin "IF_addr_mem[1]" is stuck at GND
+    Warning (13410): Pin "ID_op[0]" is stuck at GND
+    Warning (13410): Pin "ID_op[1]" is stuck at GND
+    Warning (13410): Pin "ID_op[2]" is stuck at GND
+    Warning (13410): Pin "ID_op[3]" is stuck at GND
+    Warning (13410): Pin "ID_op[4]" is stuck at GND
+    Warning (13410): Pin "ID_op[5]" is stuck at GND
+    Warning (13410): Pin "ID_func[0]" is stuck at GND
+    Warning (13410): Pin "ID_func[1]" is stuck at GND
+    Warning (13410): Pin "ID_func[2]" is stuck at GND
+    Warning (13410): Pin "ID_func[3]" is stuck at GND
+    Warning (13410): Pin "ID_func[4]" is stuck at GND
+    Warning (13410): Pin "ID_func[5]" is stuck at GND
+    Warning (13410): Pin "ID_instru[0]" is stuck at GND
+    Warning (13410): Pin "ID_instru[1]" is stuck at GND
+    Warning (13410): Pin "ID_instru[2]" is stuck at GND
+    Warning (13410): Pin "ID_instru[3]" is stuck at GND
+    Warning (13410): Pin "ID_instru[4]" is stuck at GND
+    Warning (13410): Pin "ID_instru[5]" is stuck at GND
+    Warning (13410): Pin "ID_instru[6]" is stuck at GND
+    Warning (13410): Pin "ID_instru[7]" is stuck at GND
+    Warning (13410): Pin "ID_instru[8]" is stuck at GND
+    Warning (13410): Pin "ID_instru[9]" is stuck at GND
+    Warning (13410): Pin "ID_instru[10]" is stuck at GND
+    Warning (13410): Pin "ID_instru[11]" is stuck at GND
+    Warning (13410): Pin "ID_instru[12]" is stuck at GND
+    Warning (13410): Pin "ID_instru[13]" is stuck at GND
+    Warning (13410): Pin "ID_instru[14]" is stuck at GND
+    Warning (13410): Pin "ID_instru[15]" is stuck at GND
+    Warning (13410): Pin "ID_instru[16]" is stuck at GND
+    Warning (13410): Pin "ID_instru[17]" is stuck at GND
+    Warning (13410): Pin "ID_instru[18]" is stuck at GND
+    Warning (13410): Pin "ID_instru[19]" is stuck at GND
+    Warning (13410): Pin "ID_instru[20]" is stuck at GND
+    Warning (13410): Pin "ID_instru[21]" is stuck at GND
+    Warning (13410): Pin "ID_instru[22]" is stuck at GND
+    Warning (13410): Pin "ID_instru[23]" is stuck at GND
+    Warning (13410): Pin "ID_instru[24]" is stuck at GND
+    Warning (13410): Pin "ID_instru[25]" is stuck at GND
+    Warning (13410): Pin "ID_instru[26]" is stuck at GND
+    Warning (13410): Pin "ID_instru[27]" is stuck at GND
+    Warning (13410): Pin "ID_instru[28]" is stuck at GND
+    Warning (13410): Pin "ID_instru[29]" is stuck at GND
+    Warning (13410): Pin "ID_instru[30]" is stuck at GND
+    Warning (13410): Pin "ID_instru[31]" is stuck at GND
+    Warning (13410): Pin "ID_Rw[0]" is stuck at GND
+    Warning (13410): Pin "ID_Rw[1]" is stuck at GND
+    Warning (13410): Pin "ID_Rw[2]" is stuck at GND
+    Warning (13410): Pin "ID_Rw[3]" is stuck at GND
+    Warning (13410): Pin "ID_Rw[4]" is stuck at GND
+    Warning (13410): Pin "ID_Rs[0]" is stuck at GND
+    Warning (13410): Pin "ID_Rs[1]" is stuck at GND
+    Warning (13410): Pin "ID_Rs[2]" is stuck at GND
+    Warning (13410): Pin "ID_Rs[3]" is stuck at GND
+    Warning (13410): Pin "ID_Rs[4]" is stuck at GND
+    Warning (13410): Pin "ID_Rt[0]" is stuck at GND
+    Warning (13410): Pin "ID_Rt[1]" is stuck at GND
+    Warning (13410): Pin "ID_Rt[2]" is stuck at GND
+    Warning (13410): Pin "ID_Rt[3]" is stuck at GND
+    Warning (13410): Pin "ID_Rt[4]" is stuck at GND
+    Warning (13410): Pin "ID_Rd[0]" is stuck at GND
+    Warning (13410): Pin "ID_Rd[1]" is stuck at GND
+    Warning (13410): Pin "ID_Rd[2]" is stuck at GND
+    Warning (13410): Pin "ID_Rd[3]" is stuck at GND
+    Warning (13410): Pin "ID_Rd[4]" is stuck at GND
+    Warning (13410): Pin "ID_ExtOP" is stuck at VCC
+    Warning (13410): Pin "ID_AluSrc" is stuck at GND
+    Warning (13410): Pin "ID_AluCtr[0]" is stuck at VCC
+    Warning (13410): Pin "ID_AluCtr[1]" is stuck at GND
+    Warning (13410): Pin "ID_AluCtr[2]" is stuck at GND
+    Warning (13410): Pin "ID_MemWr" is stuck at GND
+    Warning (13410): Pin "ID_MemtoReg" is stuck at GND
+    Warning (13410): Pin "ID_RegWr" is stuck at VCC
+    Warning (13410): Pin "ID_RegDst" is stuck at VCC
+    Warning (13410): Pin "ID_imm16[0]" is stuck at GND
+    Warning (13410): Pin "ID_imm16[1]" is stuck at GND
+    Warning (13410): Pin "ID_imm16[2]" is stuck at GND
+    Warning (13410): Pin "ID_imm16[3]" is stuck at GND
+    Warning (13410): Pin "ID_imm16[4]" is stuck at GND
+    Warning (13410): Pin "ID_imm16[5]" is stuck at GND
+    Warning (13410): Pin "ID_imm16[6]" is stuck at GND
+    Warning (13410): Pin "ID_imm16[7]" is stuck at GND
+    Warning (13410): Pin "ID_imm16[8]" is stuck at GND
+    Warning (13410): Pin "ID_imm16[9]" is stuck at GND
+    Warning (13410): Pin "ID_imm16[10]" is stuck at GND
+    Warning (13410): Pin "ID_imm16[11]" is stuck at GND
+    Warning (13410): Pin "ID_imm16[12]" is stuck at GND
+    Warning (13410): Pin "ID_imm16[13]" is stuck at GND
+    Warning (13410): Pin "ID_imm16[14]" is stuck at GND
+    Warning (13410): Pin "ID_imm16[15]" is stuck at GND
+    Warning (13410): Pin "EXE_busOutB[16]" is stuck at GND
+    Warning (13410): Pin "EXE_busOutB[17]" is stuck at GND
+    Warning (13410): Pin "EXE_busOutB[18]" is stuck at GND
+    Warning (13410): Pin "EXE_busOutB[19]" is stuck at GND
+    Warning (13410): Pin "EXE_busOutB[20]" is stuck at GND
+    Warning (13410): Pin "EXE_busOutB[21]" is stuck at GND
+    Warning (13410): Pin "EXE_busOutB[22]" is stuck at GND
+    Warning (13410): Pin "EXE_busOutB[23]" is stuck at GND
+    Warning (13410): Pin "EXE_busOutB[24]" is stuck at GND
+    Warning (13410): Pin "EXE_busOutB[25]" is stuck at GND
+    Warning (13410): Pin "EXE_busOutB[26]" is stuck at GND
+    Warning (13410): Pin "EXE_busOutB[27]" is stuck at GND
+    Warning (13410): Pin "EXE_busOutB[28]" is stuck at GND
+    Warning (13410): Pin "EXE_busOutB[29]" is stuck at GND
+    Warning (13410): Pin "EXE_busOutB[30]" is stuck at GND
+    Warning (13410): Pin "EXE_busOutB[31]" is stuck at GND
+    Warning (13410): Pin "EXE_MemWr" is stuck at GND
+    Warning (13410): Pin "EXE_MemtoReg" is stuck at GND
+    Warning (13410): Pin "EXE_RegWr" is stuck at VCC
+    Warning (13410): Pin "EXE_busB[16]" is stuck at GND
+    Warning (13410): Pin "EXE_busB[17]" is stuck at GND
+    Warning (13410): Pin "EXE_busB[18]" is stuck at GND
+    Warning (13410): Pin "EXE_busB[19]" is stuck at GND
+    Warning (13410): Pin "EXE_busB[20]" is stuck at GND
+    Warning (13410): Pin "EXE_busB[21]" is stuck at GND
+    Warning (13410): Pin "EXE_busB[22]" is stuck at GND
+    Warning (13410): Pin "EXE_busB[23]" is stuck at GND
+    Warning (13410): Pin "EXE_busB[24]" is stuck at GND
+    Warning (13410): Pin "EXE_busB[25]" is stuck at GND
+    Warning (13410): Pin "EXE_busB[26]" is stuck at GND
+    Warning (13410): Pin "EXE_busB[27]" is stuck at GND
+    Warning (13410): Pin "EXE_busB[28]" is stuck at GND
+    Warning (13410): Pin "EXE_busB[29]" is stuck at GND
+    Warning (13410): Pin "EXE_busB[30]" is stuck at GND
+    Warning (13410): Pin "EXE_busB[31]" is stuck at GND
+    Warning (13410): Pin "EXE_Rw[0]" is stuck at GND
+    Warning (13410): Pin "EXE_Rw[1]" is stuck at GND
+    Warning (13410): Pin "EXE_Rw[2]" is stuck at GND
+    Warning (13410): Pin "EXE_Rw[3]" is stuck at GND
+    Warning (13410): Pin "EXE_Rw[4]" is stuck at GND
+    Warning (13410): Pin "EXE_Rs[0]" is stuck at GND
+    Warning (13410): Pin "EXE_Rs[1]" is stuck at GND
+    Warning (13410): Pin "EXE_Rs[2]" is stuck at GND
+    Warning (13410): Pin "EXE_Rs[3]" is stuck at GND
+    Warning (13410): Pin "EXE_Rs[4]" is stuck at GND
+    Warning (13410): Pin "EXE_Rt[0]" is stuck at GND
+    Warning (13410): Pin "EXE_Rt[1]" is stuck at GND
+    Warning (13410): Pin "EXE_Rt[2]" is stuck at GND
+    Warning (13410): Pin "EXE_Rt[3]" is stuck at GND
+    Warning (13410): Pin "EXE_Rt[4]" is stuck at GND
+    Warning (13410): Pin "EXE_Rd[0]" is stuck at GND
+    Warning (13410): Pin "EXE_Rd[1]" is stuck at GND
+    Warning (13410): Pin "EXE_Rd[2]" is stuck at GND
+    Warning (13410): Pin "EXE_Rd[3]" is stuck at GND
+    Warning (13410): Pin "EXE_Rd[4]" is stuck at GND
+    Warning (13410): Pin "EXE_ExtOP" is stuck at VCC
+    Warning (13410): Pin "EXE_AluSrc" is stuck at GND
+    Warning (13410): Pin "EXE_AluCtr[0]" is stuck at VCC
+    Warning (13410): Pin "EXE_AluCtr[1]" is stuck at GND
+    Warning (13410): Pin "EXE_AluCtr[2]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[8]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[9]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[10]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[11]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[12]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[13]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[14]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[15]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[16]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[17]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[18]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[19]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[20]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[21]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[22]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[23]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[24]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[25]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[26]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[27]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[28]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[29]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[30]" is stuck at GND
+    Warning (13410): Pin "MEM_DataOut[31]" is stuck at GND
+    Warning (13410): Pin "MEM_MemtoReg" is stuck at GND
+    Warning (13410): Pin "MEM_RegWr" is stuck at VCC
+    Warning (13410): Pin "MEM_Rw[0]" is stuck at GND
+    Warning (13410): Pin "MEM_Rw[1]" is stuck at GND
+    Warning (13410): Pin "MEM_Rw[2]" is stuck at GND
+    Warning (13410): Pin "MEM_Rw[3]" is stuck at GND
+    Warning (13410): Pin "MEM_Rw[4]" is stuck at GND
+    Warning (13410): Pin "MEM_MemWr" is stuck at GND
+    Warning (13410): Pin "MEM_Rd[0]" is stuck at GND
+    Warning (13410): Pin "MEM_Rd[1]" is stuck at GND
+    Warning (13410): Pin "MEM_Rd[2]" is stuck at GND
+    Warning (13410): Pin "MEM_Rd[3]" is stuck at GND
+    Warning (13410): Pin "MEM_Rd[4]" is stuck at GND
+    Warning (13410): Pin "Wr_RegWr" is stuck at VCC
+    Warning (13410): Pin "Wr_Rw[0]" is stuck at GND
+    Warning (13410): Pin "Wr_Rw[1]" is stuck at GND
+    Warning (13410): Pin "Wr_Rw[2]" is stuck at GND
+    Warning (13410): Pin "Wr_Rw[3]" is stuck at GND
+    Warning (13410): Pin "Wr_Rw[4]" is stuck at GND
+    Warning (13410): Pin "AluSrcA[0]" is stuck at GND
+    Warning (13410): Pin "AluSrcA[1]" is stuck at GND
+    Warning (13410): Pin "AluSrcB[0]" is stuck at GND
+    Warning (13410): Pin "AluSrcB[1]" is stuck at GND
+    Warning (13410): Pin "C" is stuck at GND
+    Warning (13410): Pin "EXE_MemRead" is stuck at GND
+Info: 46 registers lost all their fanouts during netlist optimizations. The first 46 are displayed below.
+    Info: Register "RegIF:regif|ID_pc[25]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[24]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[23]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[22]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[21]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[20]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[19]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[18]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[17]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[16]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[15]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[14]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[13]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[12]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[11]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[10]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[9]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[8]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[29]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[28]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[27]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegIF:regif|ID_pc[26]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegEXE:regexe|MEM_busB[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegEXE:regexe|MEM_busB[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegEXE:regexe|MEM_busB[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegEXE:regexe|MEM_busB[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegEXE:regexe|MEM_busB[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegEXE:regexe|MEM_busB[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegEXE:regexe|MEM_busB[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegEXE:regexe|MEM_busB[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegEXE:regexe|MEM_busB[8]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegEXE:regexe|MEM_busB[9]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegEXE:regexe|MEM_busB[10]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegEXE:regexe|MEM_busB[11]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegEXE:regexe|MEM_busB[12]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegEXE:regexe|MEM_busB[13]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegEXE:regexe|MEM_busB[14]" lost all its fanouts during netlist optimizations.
+    Info: Register "RegEXE:regexe|MEM_busB[15]" lost all its fanouts during netlist optimizations.
+Info: Removed 4 MSB VCC or GND address nodes from RAM block "altsyncram:REG_Files_rtl_0|altsyncram_6bi1:auto_generated|ALTSYNCRAM"
+Info: Removed 4 MSB VCC or GND address nodes from RAM block "altsyncram:REG_Files_rtl_1|altsyncram_6bi1:auto_generated|ALTSYNCRAM"
+Warning: Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "run"
+Info: Implemented 943 device resources after synthesis - the final resource count might be different
+    Info: Implemented 2 input pins
+    Info: Implemented 590 output pins
+    Info: Implemented 287 logic cells
+    Info: Implemented 64 RAM segments
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 358 warnings
+    Info: Peak virtual memory: 233 megabytes
+    Info: Processing ended: Thu Feb 23 10:09:44 2023
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:02
+
+
